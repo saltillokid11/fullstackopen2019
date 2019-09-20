@@ -11,29 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-#top{
-  margin: 10px;
-  width: 400px; 
-  height: 200px;
-  border:1px solid black;
-}
-
-#bottom{
-  margin: 10px;
-  width: 400px; 
-  height: 200px;
-  border:1px solid black;
-}
-
-#feed{
-  color: #422152;
-}
-
-#stat{
-  color: #422152;
-}
-
-#red{
-  color: #ff7d7d;
-}

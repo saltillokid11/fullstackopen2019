@@ -8,18 +8,46 @@ const Button = ({ onClick, text }) => (
     </button>
 )
 
-const DisplayGood = ({ good }) => <div>Good {good}</div>
-const DisplayNeutral = ({ neutral }) => <div>Neutral {neutral}</div>
-const DisplayBad = ({ bad }) => <div>Bad {bad}</div>
+// const DisplayGood = ({ good }) => <div>Good {good}</div>
+// const DisplayNeutral = ({ neutral }) => <div>Neutral {neutral}</div>
+// const DisplayBad = ({ bad }) => <div>Bad {bad}</div>
+
+const Stats = (props) => {
+  if(props.good < 1 && props.neutral < 1 && props.bad < 1){
+    return(
+      <div>
+        <div>No feedback given</div>
+      </div>
+    )
+  }
+  //don't count unless we have values
+  let sum = props.good + props.neutral + props.bad;
+  return(
+    <table>
+      <tbody>
+        <SingleStat text="Good" value={props.good}/>
+        <SingleStat text="Bad" value={props.bad}/>
+        <SingleStat text="Neutral" value={props.neutral}/>
+        <SingleStat text="All" value={sum}/>
+        <SingleStat text="Average" value={props.good - props.bad / sum}/>
+        <SingleStat text="Positive" value={props.good / sum * 100}/>
+      </tbody>
+    </table>
+  )
+}
+
+const SingleStat = (props) => {
+  return(
+    <tr>
+      <td>{props.text}: {props.value}</td>
+    </tr>
+  )
+}
 
 const App = () => {
-  // save clicks of each button to own state
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  console.log("good", good);
-  console.log("neutral", neutral);
-  console.log("bad", bad);
   
   return (
     <div>
@@ -35,10 +63,7 @@ const App = () => {
             <div>
                 <p id='stat'>Statistics</p>
             </div>
-            <DisplayGood good={good}/>
-            <DisplayNeutral neutral={neutral}/>
-            <DisplayBad bad={bad}/>
-
+            <Stats good={good} neutral={neutral} bad={bad}/>
         </div>
     </div>    
   )
