@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Person from './components/Person'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
+import axios from 'axios'
 
 
 const App = () => {
-  const [ persons, setPersons] = useState([
-    { name: 'Arto Hellas', number: '040-123456', id: 232323},
-    { name: 'Ada Lovelace', number: '39-44-5323523', id: 232324 },
-    { name: 'Dan Abramov', number: '12-43-234345', id: 232325 },
-    { name: 'Mary Poppendieck', number: '39-23-6423122', id: 232326 }
-  ]) 
+  const [ persons, setPersons] = useState([]) 
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ newSearch, setNewSearch ] = useState('')
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/persons").then(reponse => {setPersons(reponse.data)})
+  }, [])
 
   const searchResult = persons.filter(person => person.name.search(new RegExp(newSearch, "i")) >= 0);
   
