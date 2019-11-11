@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
-// import Country from './components/Country'
-import Countries from './components/Countries'
 import ShowContries from './components/ShowCountries'
 import Search from './components/Search'
 import axios from 'axios'
