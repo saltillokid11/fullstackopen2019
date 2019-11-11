@@ -1,12 +1,14 @@
 import React from 'react'
 import Country from './Country'
-import Search from './Search'
+import CountryData from './CountryData'
 
 const ShowCountries = ({filterCountries, countrySearch}) => {
     let results = "";
 
     if(countrySearch.length == 0){
         return null;
+    } else if(filterCountries.length === 1) {
+        return <CountryData filterCountries={filterCountries}/>
     } else if(filterCountries.length > 10){
         return <div>Too many</div>
     } else if(filterCountries.length > 0 && filterCountries.length <= 10){
