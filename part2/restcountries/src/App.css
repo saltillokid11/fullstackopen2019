@@ -12,6 +12,11 @@
 .results {
   margin-top: 2%;
   border:1px solid black;
+  width: 800px;
+}
+
+img {
+  border:1px solid black;
 }
 
 .App-header {

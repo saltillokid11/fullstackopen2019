@@ -5,19 +5,21 @@ import CountryData from './CountryData'
 const ShowCountries = ({filterCountries, countrySearch}) => {
     let results = "";
 
-    if(countrySearch.length == 0){
+    if(countrySearch.length === 0){
         return null;
     } else if(filterCountries.length === 1) {
         return <CountryData filterCountries={filterCountries}/>
     } else if(filterCountries.length > 10){
-        return <div>Too many</div>
+        return <div>Too many matches, specify another filter</div>
     } else if(filterCountries.length > 0 && filterCountries.length <= 10){
         results = filterCountries.map(country => {
             return (
-                <Country 
-                    key={country.numericCode} 
-                    country={country.name}
-                />
+                <div key={country.numericCode}>
+                    {/* <button onClick={ <CountryData filterCountries={filterCountries}/> }></button> */}
+                    <Country 
+                        country={country.name}
+                    />
+                </div>
             )}
         )
     }
