@@ -3,7 +3,8 @@ import React from 'react'
 const Country = (props) => {
   return (
     <div>
-      <p>{props.country}</p>
+      {props.country}
+      <button value={props.country} onClick={props.handleSearchChange}>show</button>
     </div>
   )
 }

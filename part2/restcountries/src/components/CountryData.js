@@ -1,10 +1,12 @@
 import React from 'react'
+import WeatherData from './WeatherData'
 
-const CountryData = ({filterCountries}) => {
-    const details = filterCountries.map(country => {
+const CountryData = ({country}) => {
+
+    const details = country.map(country => {
         const languages = country.languages.map(lang => {
             return(
-                <div key={country.numericCode}>
+                <div key={lang.name}>
                     <li>{lang.name}</li>
                 </div>
             )
@@ -15,9 +17,10 @@ const CountryData = ({filterCountries}) => {
                 <h1>{country.name}</h1>
                 <div>capital: {country.capital}</div>
                 <div>population: {country.population}</div>
-                <h2>lanuages</h2>
+                <h2>Languages</h2>
                 <ul>{languages}</ul>
                 <img src={country.flag} alt={country.name} height="100px"/>
+                <div><WeatherData country={country} /></div>
             </div>
         )
     })

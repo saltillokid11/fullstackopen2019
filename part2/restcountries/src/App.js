@@ -6,7 +6,7 @@ import axios from 'axios'
 
 function App(props) {
   const [countries, setCountries] = useState([]);
-  const [countrySearch, setcountrySearch] = useState('');
+  const [countrySearch, setCountrySearch] = useState('');
 
   const hook = () => {
     axios
@@ -24,7 +24,7 @@ function App(props) {
 
 
   const handleSearchChange = (event) => {
-    setcountrySearch(event.target.value);
+    setCountrySearch(event.target.value);
   }
   
   return (
@@ -36,6 +36,7 @@ function App(props) {
         <ShowContries
           filterCountries={filterCountries}
           countrySearch={countrySearch}
+          handleSearchChange={handleSearchChange}
         />
       </div>
     </div>
