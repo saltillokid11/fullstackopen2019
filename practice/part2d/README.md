@@ -4,17 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-## FOR PROJECT RUN AND DO THIS
-
-## $ npm install axios --save
-## "axios": "^0.19.0", should be in package.json
-
-## $ npm install json-server --save-dev 
-## add: "server": "json-server -p3001 db.json" to package.json under scripts
-
-## npm run server
-## npm start
-
 ### `npm start`
 
 Runs the app in the development mode.<br />
